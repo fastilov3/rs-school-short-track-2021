@@ -23,14 +23,14 @@
 function getDNSStats(domains) {
   let arr = [];
   for (let i = 0; i < domains.length; i++) {
-    arr = arr.concat(domains[i].split('.'))
+    arr = arr.concat(domains[i].split('.'));
   }
-  console.log(arr);
+  // console.log(arr);
 }
 
 module.exports = getDNSStats;
-console.log(getDNSStats([
-  'code.yandex.ru',
-  'music.yandex.ru',
-  'yandex.ru'
-]));
+// console.log(getDNSStats([
+//   'code.yandex.ru',
+//   'music.yandex.ru',
+//   'yandex.ru'
+// ]));
