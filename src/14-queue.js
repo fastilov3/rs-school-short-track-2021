@@ -10,11 +10,7 @@
  * queue.dequeue(); // returns the top element from queue and deletes it, returns 1
  *
  */
-
-function ListNode(x) {
-  this.value = x;
-  this.next = null;
-}
+const ListNode = require('../extensions/list-node');
 
 class Queue {
   constructor() {
