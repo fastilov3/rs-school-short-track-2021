@@ -21,16 +21,18 @@
  *
  */
 function getDNSStats(domains) {
-  let arr = [];
-  for (let i = 0; i < domains.length; i++) {
-    arr = arr.concat(domains[i].split('.'));
-  }
-  // console.log(arr);
+  const obj = {};
+  domains.forEach((el) => {
+    const arr = el.split('.').reverse();
+    for (let i = 0; i < arr.length; i++) {
+      const d = `.${arr.slice(0, i + 1).join('.')}`;
+      if (!obj[d]) {
+        obj[d] = 1;
+      } else {
+        obj[d] += 1;
+      }
+    }
+  });
+  return obj;
 }
-
 module.exports = getDNSStats;
-// console.log(getDNSStats([
-//   'code.yandex.ru',
-//   'music.yandex.ru',
-//   'yandex.ru'
-// ]));

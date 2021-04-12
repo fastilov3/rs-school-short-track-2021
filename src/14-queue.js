@@ -11,17 +11,40 @@
  *
  */
 
+function ListNode(x) {
+  this.value = x;
+  this.next = null;
+}
+
 class Queue {
-  get size() {
-    throw new Error('Not implemented');
+  constructor() {
+    this.head = null;
+    this.length = 0;
   }
 
-  enqueue(/* element */) {
-    throw new Error('Not implemented');
+  get size() {
+    return this.length;
+  }
+
+  enqueue(element) {
+    const node = new ListNode(element);
+    if (this.length === 0) {
+      this.head = node;
+    } else {
+      let current = this.head;
+      while (current.next) {
+        current = current.next;
+      }
+      current.next = new ListNode(element);
+    }
+    this.length++;
   }
 
   dequeue() {
-    throw new Error('Not implemented');
+    const top = this.head.value;
+    this.head = this.head.next;
+    this.length--;
+    return top;
   }
 }
 
